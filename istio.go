@@ -34,7 +34,16 @@ func ReconcileIstioServicePorts(aws *AWSClient, cluster string, service string) 
 		return fmt.Errorf("unable to get target group ARN, %v", err)
 	}
 
+	// create target group if it doesn't exist
+
+	// get existing instances
+	instance_ids, err := aws.GetTaggedNodeInstanceIds(cluster)
+	if err != nil {
+		return fmt.Errorf("unable to get tagged node instance ids, %v", err)
+	}
+
 	fmt.Println(tg_arn)
+	fmt.Println(instance_ids)
 
 	return nil
 }
