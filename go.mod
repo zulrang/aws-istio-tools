@@ -1,4 +1,4 @@
-module github.com/zulrang/istio-nlb
+module github.com/zulrang/aws-istio-tools
 
 go 1.18
 
